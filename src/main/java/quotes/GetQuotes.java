@@ -68,3 +68,7 @@ class GetQuotes {
 
 
 }
+
+
+//we are going to need an arrayList to store the return from the API
+//we need another

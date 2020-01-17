@@ -2,8 +2,10 @@ package quotes;
 
 public class DadJokes {
 
-    public void BuildAJoke(String text){
-        this.text = text;
+    private String text;
+
+    public void BuildAJoke(String fallback){
+        this.text = fallback;
         System.out.println(text);
     }
 
