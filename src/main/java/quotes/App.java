@@ -8,49 +8,28 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 
 public class App {
 
     public static void main(String[] args) throws FileNotFoundException {
-       GetQuotes test = new GetQuotes();
-       test.randomQuote(  "src/main/resources/recentquotes.json ");
-
-    }
-
-
-}
-
-class GetQuotes {
-
-    public static void randomQuote(String pathname) throws FileNotFoundException {
-    Gson gson = new Gson();
-
-    String path = pathname;
-
-    File recentQuotesFile = new File(pathname);
-    String inputString = "";
+//       GetQuotes test = new GetQuotes();
+//       test.randomQuote(  "src/main/resources/recentquotes.json ");
 
         try {
-        Scanner scanner = new Scanner(new File(path));
-
-        while (scanner.hasNext()) {
-            inputString += scanner.nextLine();
+            System.out.println(GetQuotes.randomJokes());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        scanner.close();
 
-
-    } catch (FileNotFoundException e) {
-        throw e;
     }
 
-
-    RecentQuotes[] quoteArray = gson.fromJson(inputString, RecentQuotes[].class);
-        Random randomQuotes = new Random();
-        int n = (int) Math.ceil(Math.random() * quoteArray.length) ;
-        System.out.println(quoteArray[n]);
-    }
 
 
 }
+
